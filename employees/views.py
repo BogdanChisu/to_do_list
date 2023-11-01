@@ -1,5 +1,5 @@
-from django.http import Http404
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
 
 from employees.models import Employee
 
@@ -7,8 +7,8 @@ from employees.models import Employee
 
 
 def employee_detail(request, pk):
-    try:
-        employee = Employee.objects.get(pk=pk)
-        print(employee)
-    except:
-        raise Http404
+    employee = get_object_or_404(Employee, pk=pk)
+    context = {
+        'employee': employee,
+    }
+    return render(request, 'employee_detail.html', context)

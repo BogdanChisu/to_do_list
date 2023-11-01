@@ -27,7 +27,7 @@
               {% for employee in employees %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
-                  <td>{{ employee }}</td>
+                  <td><a href="{% url 'employee_detail' employee.id %}">{{ employee }}</a></td>
                   <td>{{ employee.designation }}</td>
                   <td>{{ employee.phone_number }}</td>
                 </tr>

@@ -3,6 +3,5 @@ from employees import views
 
 
 urlpatterns = [
-    path('employee_details/<int:pk>', views.employee_detail, 
-         name='employee-details'),
+    path('<int:pk>/', views.employee_detail, name='employee_detail'),
 ]
